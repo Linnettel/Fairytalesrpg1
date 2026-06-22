@@ -400,3 +400,28 @@ class MountainPuzzle:
             (box.x + gap * 2, slot_y),
             (box.x + gap * 3, slot_y)
         ]
+
+        for i, shape in enumerate(self.slot_order):
+            center = slot_positions[i]
+            self.draw_shape(screen, shape, center, self.slot_angles[shape], (120, 130, 145), 6)
+
+        for i, shape in enumerate(self.shape_names):
+            x = box.x + gap * (i + 1)
+            y = top_y
+            if shape in self.locked_shapes:
+                slot_index = self.slot_order.index(shape)
+                x, y = slot_positions[slot_index]
+
+            color = (255, 214, 84) if i == self.selected else (230, 230, 230)
+            if shape in self.locked_shapes:
+                color = (110, 220, 150)
+
+            if i == self.selected and shape not in self.locked_shapes:
+                marker = pygame.Rect(0, 0, 130, 130)
+                marker.center = (x, y)
+                pygame.draw.rect(screen, (255, 214, 84), marker, 3)
+
+            self.draw_shape(screen, shape, (x, y), self.shape_angles[shape], color)
+
+mountain_gate = MountainGate(scale_pos(950, 190))
+mountain_puzzle = MountainPuzzle()
