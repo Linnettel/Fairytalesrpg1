@@ -35,3 +35,16 @@ quests = {
     "collect_flowers": False,
     "bring_cake": False
 }
+
+trader_intro_done = False
+trader_menu_active = False
+trader_menu_index = 0
+
+quest_menu_active = False
+quest_menu_index = 0
+quest_intro_done = False
+quest_items_delivered = {
+    "cake": False,
+    "magictea": False,
+    "teaservice": False
+}
