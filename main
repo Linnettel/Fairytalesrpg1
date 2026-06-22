@@ -507,3 +507,12 @@ class TrollRiddles:
         else:
             if event.unicode and len(self.inputs[self.selected]) < 20:
                 self.inputs[self.selected] += event.unicode
+
+        if self.is_solved():
+            self.active = False
+
+    def is_solved(self):
+        for i, question in enumerate(self.questions):
+            if self.inputs[i].strip().lower() != question["answer"]:
+                return False
+        return True
