@@ -48,3 +48,10 @@ quest_items_delivered = {
     "magictea": False,
     "teaservice": False
 }
+
+troll_intro_done = False
+troll_choice_active = False
+troll_choice_index = 0
+troll_dialog_expects_choice = False
+troll_bridge_solved = False
+troll_bridge_portal_added = False
