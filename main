@@ -145,3 +145,29 @@ speed = 5
     trader_npc.update()
     npc11.update()
     troll_npc.update()
+
+# ---------- DRAW ----------
+    screen.blit(backgrounds[location], (0, 0))
+
+    for portal in portals[location]:
+        portal.draw()
+
+    if location == "vilka2":
+        mountain_gate.draw()
+
+    # draw flowers
+    for flower in flowers_by_location[location]:
+        flower.draw()
+
+    for item in items_by_location[location]:
+        item.draw()
+
+    if location == "home":
+        quest_npc.draw()
+    if location == "market":
+        trader_npc.draw()
+    if location == "vilka1":
+        npc11.draw()
+    if location == "vilkaa":
+        troll_npc.draw()
+    screen.blit(player_img, player_rect)
