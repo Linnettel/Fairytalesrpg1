@@ -1,6 +1,11 @@
 import pygame
 import sys
 import random
+# ---------- INIT ----------
+pygame.init()
+info = pygame.display.Info()
+WIDTH = info.current_w
+HEIGHT = info.current_h
 
 BASE_WIDTH = 1280
 BASE_HEIGHT = 720
