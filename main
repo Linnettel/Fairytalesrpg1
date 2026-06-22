@@ -111,6 +111,48 @@ backgrounds = {
 }
 
 speed = 5
+
+# ---------- FLOWER CLASS ----------
+class Flower:
+    def __init__(self, pos):
+        self.image = flower_img
+        self.rect = self.image.get_rect(center=pos)
+
+    def draw(self):
+        screen.blit(self.image, self.rect)
+
+class CollectibleItem:
+    def __init__(self, image, inventory_key, pos):
+        self.image = image
+        self.inventory_key = inventory_key
+        self.rect = self.image.get_rect(center=pos)
+
+    def draw(self):
+        screen.blit(self.image, self.rect)
+
+# ---------- RANDOM FLOWER SPAWN ----------
+def spawn_flowers():
+    flowers = []
+    count = random.randint(3, 6)
+
+    for _ in range(count):
+        x = random.randint(100, WIDTH - 100)
+        y = random.randint(150, HEIGHT - 150)
+        flowers.append(Flower((x, y)))
+
+    return flowers
+
+flowers_by_location = {
+    "home": [],
+    "market": [],
+    "vilka": [],
+    "vilka1": [],
+    "vilka2": [],
+    "vilka3": [],
+    "vilkaa": [],
+    "vilkab": [],
+    "forest": spawn_flowers()
+}
  # ---------- MOVEMENT ----------
     prev_rect = player_rect.copy()
     if not quest_npc.show_dialog and not trader_menu_active and not trader_npc.show_dialog and not npc11.show_dialog and not troll_npc.show_dialog and not troll_choice_active and not troll_riddles.active and not mountain_puzzle.active:
