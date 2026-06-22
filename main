@@ -305,6 +305,17 @@ class NPC:
         self.dialog = dialog
         self.dialog_index = 0
         self.show_dialog = True
+    def next_dialog(self):
+        if self.dialog_index < len(self.dialog) - 1:
+            self.dialog_index += 1
+            return "continue"
+        self.show_dialog = False
+        self.dialog_index = 0
+        return "end"
+
+    def current_line(self):
+        return self.dialog[self.dialog_index]
+
 # ---------- MOUNTAIN PUZZLE ----------
 class MountainGate:
     def __init__(self, pos):
