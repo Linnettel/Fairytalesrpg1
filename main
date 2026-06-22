@@ -291,6 +291,20 @@ class NPC:
         self.dialog = dialog
         self.dialog_index = 0
         self.show_dialog = False
+
+    def update(self):
+        self.interaction_rect.center = self.rect.center
+
+    def draw(self):
+        screen.blit(self.image, self.rect)
+
+    def can_interact(self, player_rect):
+        return self.interaction_rect.colliderect(player_rect)
+
+    def start_dialog(self, dialog):
+        self.dialog = dialog
+        self.dialog_index = 0
+        self.show_dialog = True
 # ---------- MOUNTAIN PUZZLE ----------
 class MountainGate:
     def __init__(self, pos):
