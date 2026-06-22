@@ -11,5 +11,9 @@ HEIGHT = info.current_h
 screen = pygame.display.set_mode((WIDTH, HEIGHT), pygame.FULLSCREEN)
 pygame.display.set_caption("DBPG")
 
+clock = pygame.time.Clock()
+font_size = max(24, WIDTH // 50)
+font = pygame.font.SysFont("arial", font_size)
+
 BASE_WIDTH = 1280
 BASE_HEIGHT = 720
