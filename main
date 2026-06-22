@@ -15,5 +15,11 @@ clock = pygame.time.Clock()
 font_size = max(24, WIDTH // 50)
 font = pygame.font.SysFont("arial", font_size)
 
+def scale_pos(x, y):
+    return (
+        int(x / BASE_WIDTH * WIDTH),
+        int(y / BASE_HEIGHT * HEIGHT)
+    )
+
 BASE_WIDTH = 1280
 BASE_HEIGHT = 720
