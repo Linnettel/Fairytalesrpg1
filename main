@@ -58,6 +58,7 @@ troll_bridge_portal_added = False
 
 # ---------- LOAD ASSETS ----------
 player_img = pygame.image.load("assets/persons/mainpersmini2.png").convert_alpha()
+player_rect = player_img.get_rect(center=(WIDTH // 2, HEIGHT // 2))
 
 portal_img = pygame.image.load("assets/subject/portal.png").convert_alpha()
 portal2_img = pygame.image.load("assets/subject/portal2.png").convert_alpha()
