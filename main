@@ -595,3 +595,24 @@ def all_tea_party_items_delivered():
 
 def get_quest_options():
     options = []
+
+
+    if not quest_items_delivered["cake"]:
+        if inventory["cake"] >= 1:
+            options.append(("deliver_cake", "I brought the cake"))
+        else:
+            options.append(("hint_cake", "Where can I buy a cake?"))
+
+    if not quest_items_delivered["magictea"]:
+        if inventory["magictea"] >= 1:
+            options.append(("deliver_magictea", "I brought a magic tea"))
+        else:
+            options.append(("hint_magictea", "Where can I find a magic tea?"))
+
+    if not quest_items_delivered["teaservice"]:
+        if inventory["teaservice"] >= 1:
+            options.append(("deliver_teaservice", "I brought a tea service"))
+        else:
+            options.append(("hint_teaservice", "Where can I find a tea service?"))
+
+    return options
