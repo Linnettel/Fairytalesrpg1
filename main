@@ -425,3 +425,4 @@ class MountainPuzzle:
 
 mountain_gate = MountainGate(scale_pos(950, 190))
 mountain_puzzle = MountainPuzzle()
+mountain_portal = Portal(scale_pos(1080, 190), "vilka3", scale_pos(500, 360), portal2_img)
