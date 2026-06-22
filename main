@@ -7,5 +7,9 @@ info = pygame.display.Info()
 WIDTH = info.current_w
 HEIGHT = info.current_h
 
+# Полноэкранный режим
+screen = pygame.display.set_mode((WIDTH, HEIGHT), pygame.FULLSCREEN)
+pygame.display.set_caption("DBPG")
+
 BASE_WIDTH = 1280
 BASE_HEIGHT = 720
