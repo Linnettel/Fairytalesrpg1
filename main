@@ -343,3 +343,25 @@ class MountainPuzzle:
             if shape not in self.locked_shapes:
                 self.selected = i
                 return
+
+    def start(self):
+        self.reset()
+        self.active = True
+
+    def rotate_selected(self):
+        shape = self.shape_names[self.selected]
+        if shape not in self.locked_shapes:
+            self.shape_angles[shape] = (self.shape_angles[shape] + 15) % 360
+            self.try_lock(shape)
+
+    def select_next(self, step):
+        for _ in self.shape_names:
+            self.selected = (self.selected + step) % len(self.shape_names)
+            if self.shape_names[self.selected] not in self.locked_shapes:
+                break
+
+    def select_next_unlocked(self):
+        for i, shape in enumerate(self.shape_names):
+            if shape not in self.locked_shapes:
+                self.selected = i
+                return
