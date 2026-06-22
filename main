@@ -297,3 +297,15 @@ class MountainGate:
 
     def can_interact(self, player_rect):
         return (not self.opened) and self.interaction_rect.colliderect(player_rect)
+
+class MountainPuzzle:
+    def __init__(self):
+        self.active = False
+        self.solved = False
+        self.selected = 0
+        self.shape_names = ["square", "triangle", "oval"]
+        self.shape_angles = {name: 0 for name in self.shape_names}
+        self.locked_shapes = set()
+        self.slot_order = []
+        self.slot_angles = {}
+        self.reset()
