@@ -111,3 +111,15 @@ backgrounds = {
 }
 
 speed = 5
+ # ---------- MOVEMENT ----------
+    prev_rect = player_rect.copy()
+    if not quest_npc.show_dialog and not trader_menu_active and not trader_npc.show_dialog and not npc11.show_dialog and not troll_npc.show_dialog and not troll_choice_active and not troll_riddles.active and not mountain_puzzle.active:
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_a]:
+            player_rect.x -= speed
+        if keys[pygame.K_d]:
+            player_rect.x += speed
+        if keys[pygame.K_w]:
+            player_rect.y -= speed
+        if keys[pygame.K_s]:
+            player_rect.y += speed
