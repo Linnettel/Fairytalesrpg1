@@ -344,24 +344,25 @@ class MountainPuzzle:
                 self.selected = i
                 return
 
-    def start(self):
-        self.reset()
-        self.active = True
+    def is_angle_correct(self, shape):
+        angle = self.shape_angles[shape] % 360
+        slot_angle = self.slot_angles[shape] % 360
+        symmetry = {
+            "square": 90,
+            "triangle": 120,
+            "oval": 180
+        }[shape]
+        return (angle - slot_angle) % symmetry == 0
 
-    def rotate_selected(self):
-        shape = self.shape_names[self.selected]
-        if shape not in self.locked_shapes:
-            self.shape_angles[shape] = (self.shape_angles[shape] + 15) % 360
-            self.try_lock(shape)
+    def try_lock(self, shape):
+        if self.is_angle_correct(shape):
+            self.locked_shapes.add(shape)
+            if len(self.locked_shapes) == len(self.shape_names):
+                self.solved = True
+                self.active = False
+            else:
+                self.select_next_unlocked()
 
-    def select_next(self, step):
-        for _ in self.shape_names:
-            self.selected = (self.selected + step) % len(self.shape_names)
-            if self.shape_names[self.selected] not in self.locked_shapes:
-                break
-
-    def select_next_unlocked(self):
-        for i, shape in enumerate(self.shape_names):
-            if shape not in self.locked_shapes:
-                self.selected = i
-                return
+    def draw_shape(self, surface, shape, center, angle, color, outline=0):
+        temp = pygame.Surface((150, 150), pygame.SRCALPHA)
+        cx, cy = 75, 75
