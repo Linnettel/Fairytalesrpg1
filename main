@@ -566,3 +566,27 @@ def draw_troll_choice():
     for i, opt in enumerate(options):
         color = (255, 255, 0) if i == troll_choice_index else (255, 255, 255)
         screen.blit(font.render(opt, True, color), (box.x + 40, box.y + 60 + i * 50))
+# ---------- UI ----------
+def draw_dialog(speaker, text):
+    box = pygame.Rect(80, HEIGHT - 170, WIDTH - 160, 120)
+    pygame.draw.rect(screen, (0, 0, 0), box)
+    pygame.draw.rect(screen, (255, 255, 255), box, 2)
+
+    color = (200, 200, 50) if speaker == "npc" else (100, 200, 255)
+    screen.blit(font.render(speaker.upper(), True, color), (box.x + 20, box.y + 10))
+    screen.blit(font.render(text, True, (255, 255, 255)), (box.x + 20, box.y + 50))
+
+def draw_trader_menu():
+    box = pygame.Rect(80, HEIGHT - 240, WIDTH - 160, 200)
+    pygame.draw.rect(screen, (0, 0, 0), box)
+    pygame.draw.rect(screen, (255, 255, 255), box, 2)
+
+    title = font.render("Choose an option:", True, (200, 200, 200))
+    screen.blit(title, (box.x + 20, box.y + 10))
+
+    options = ["Ask price again", "I brought flowers", "Exit"]
+
+    for i, opt in enumerate(options):
+        color = (255, 255, 0) if i == trader_menu_index else (255, 255, 255)
+        screen.blit(font.render(opt, True, color),
+                    (box.x + 40, box.y + 50 + i * 50))
