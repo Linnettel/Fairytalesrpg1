@@ -144,4 +144,4 @@ speed = 5
     quest_npc.update()
     trader_npc.update()
     npc11.update()
-    troll_npc.update
+    troll_npc.update()
