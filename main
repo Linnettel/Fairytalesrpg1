@@ -206,3 +206,18 @@ speed = 5
     if mountain_puzzle.solved and not mountain_gate.opened:
         mountain_gate.opened = True
         portals["vilka2"].append(mountain_portal)
+
+hud_parts = [f"Flowers: {inventory['flower']}"]
+    if not quest_items_delivered["cake"]:
+        hud_parts.append(f"Cake: {inventory['cake']}/1")
+    if not quest_items_delivered["teaservice"]:
+        hud_parts.append(f"Tea service: {inventory['teaservice']}/1")
+    if not quest_items_delivered["magictea"]:
+        hud_parts.append(f"Magic tea: {inventory['magictea']}/1")
+    hud_parts.append(f"Location: {location}")
+
+    hud = font.render(
+        " | ".join(hud_parts),
+        True, (255, 255, 255)
+    )
+    screen.blit(hud, (20, 20))
