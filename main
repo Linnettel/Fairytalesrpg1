@@ -644,3 +644,28 @@ quest_npc = NPC(
         {"speaker": "player", "text": "I'll take care of it."}
     ]
 )
+
+trader_npc = NPC(
+    "assets/persons/trader.png",
+    scale_pos(660, 200),
+    [
+        {"speaker": "npc", "text": "Good afternoon."},
+        {"speaker": "player", "text": "Good afternoon."},
+        {"speaker": "player", "text": "I would like to buy a cake."},
+        {"speaker": "npc", "text": "It costs 3 flowers."},
+        {"speaker": "player", "text": "But I don't have three flowers."},
+        {"speaker": "npc", "text": "Come back when you have them."}
+    ]
+)
+troll_npc = NPC(
+    "assets/persons/troll.png",
+    scale_pos(410, 135),
+    [
+        {"speaker": "player", "text": "Hello."},
+        {"speaker": "troll", "text": "Hello."},
+        {"speaker": "player", "text": "What sort of bridge are you guarding?"},
+        {"speaker": "troll", "text": "This bridge leads to a magical tea."},
+        {"speaker": "player", "text": "Can I cross this bridge?"},
+        {"speaker": "troll", "text": "Yes, but you have to solve the riddles."}
+    ]
+)
