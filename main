@@ -483,3 +483,8 @@ class TrollRiddles:
         self.active = False
         self.selected = 0
         self.questions = [
+            {"text": "1) 7*7=", "answer": "49"},
+            {"text": "2) 293+7=", "answer": "300"},
+            {"text": ["3) I am a pet. I like mice. I have nine lives.", "I purr and meow. What am I-"], "answer": "cat"}
+        ]
+        self.inputs = ["", "", ""]
