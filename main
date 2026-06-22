@@ -553,3 +553,16 @@ class TrollRiddles:
             screen.blit(answer_text, (field.x + 12, field.y + 7))
 
 troll_riddles = TrollRiddles()
+
+def draw_troll_choice():
+    box = pygame.Rect(80, HEIGHT - 240, WIDTH - 160, 200)
+    pygame.draw.rect(screen, (0, 0, 0), box)
+    pygame.draw.rect(screen, (255, 255, 255), box, 2)
+
+    title = font.render("Solve the riddles?", True, (200, 200, 200))
+    screen.blit(title, (box.x + 20, box.y + 10))
+
+    options = ["Yes", "No"]
+    for i, opt in enumerate(options):
+        color = (255, 255, 0) if i == troll_choice_index else (255, 255, 255)
+        screen.blit(font.render(opt, True, color), (box.x + 40, box.y + 60 + i * 50))
