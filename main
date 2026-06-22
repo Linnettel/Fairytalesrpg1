@@ -282,6 +282,15 @@ hud_parts = [f"Flowers: {inventory['flower']}"]
 
     pygame.display.update()
     clock.tick(60)
+# ---------- NPC CLASS ----------
+class NPC:
+    def __init__(self, image_path, pos, dialog):
+        self.image = pygame.image.load(image_path).convert_alpha()
+        self.rect = self.image.get_rect(center=pos)
+        self.interaction_rect = self.rect.inflate(120, 120)
+        self.dialog = dialog
+        self.dialog_index = 0
+        self.show_dialog = False
 # ---------- MOUNTAIN PUZZLE ----------
 class MountainGate:
     def __init__(self, pos):
