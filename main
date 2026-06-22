@@ -493,3 +493,17 @@ class TrollRiddles:
         self.active = True
         self.selected = 0
         self.inputs = ["", "", ""]
+
+    def handle_key(self, event):
+        if event.key == pygame.K_UP:
+            self.selected = (self.selected - 1) % len(self.questions)
+        elif event.key == pygame.K_DOWN:
+            self.selected = (self.selected + 1) % len(self.questions)
+        elif event.key == pygame.K_BACKSPACE:
+            self.inputs[self.selected] = self.inputs[self.selected][:-1]
+        elif event.key == pygame.K_RETURN:
+            if self.is_solved():
+                self.active = False
+        else:
+            if event.unicode and len(self.inputs[self.selected]) < 20:
+                self.inputs[self.selected] += event.unicode
