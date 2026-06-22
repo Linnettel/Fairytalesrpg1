@@ -488,3 +488,8 @@ class TrollRiddles:
             {"text": ["3) I am a pet. I like mice. I have nine lives.", "I purr and meow. What am I-"], "answer": "cat"}
         ]
         self.inputs = ["", "", ""]
+
+    def start(self):
+        self.active = True
+        self.selected = 0
+        self.inputs = ["", "", ""]
