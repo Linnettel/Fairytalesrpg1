@@ -366,3 +366,16 @@ class MountainPuzzle:
     def draw_shape(self, surface, shape, center, angle, color, outline=0):
         temp = pygame.Surface((150, 150), pygame.SRCALPHA)
         cx, cy = 75, 75
+
+       if shape == "square":
+            points = [(35, 35), (115, 35), (115, 115), (35, 115)]
+            pygame.draw.polygon(temp, color, points, outline)
+        elif shape == "triangle":
+            points = [(75, 25), (120, 115), (30, 115)]
+            pygame.draw.polygon(temp, color, points, outline)
+        elif shape == "oval":
+            pygame.draw.ellipse(temp, color, pygame.Rect(30, 45, 90, 60), outline)
+
+        rotated = pygame.transform.rotate(temp, -angle)
+        rect = rotated.get_rect(center=center)
+        surface.blit(rotated, rect)
