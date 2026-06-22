@@ -516,3 +516,38 @@ class TrollRiddles:
             if self.inputs[i].strip().lower() != question["answer"]:
                 return False
         return True
+
+    def draw(self):
+        overlay = pygame.Surface((WIDTH, HEIGHT), pygame.SRCALPHA)
+        overlay.fill((0, 0, 0, 170))
+        screen.blit(overlay, (0, 0))
+
+        box_size = min(700, WIDTH - 60, HEIGHT - 60)
+        box = pygame.Rect(0, 0, box_size, box_size)
+        box.center = (WIDTH // 2, HEIGHT // 2)
+
+        pygame.draw.rect(screen, (26, 30, 36), box)
+        pygame.draw.rect(screen, (235, 235, 235), box, 4)
+
+        title = font.render("Troll riddles", True, (255, 230, 120))
+        screen.blit(title, (box.x + 40, box.y + 35))
+
+        start_y = box.y + 120
+        row_gap = max(95, box_size // 6)
+
+        for i, question in enumerate(self.questions):
+            y = start_y + i * row_gap
+            selected = i == self.selected
+            color = (255, 230, 120) if selected else (255, 255, 255)
+            question_lines = question["text"] if isinstance(question["text"], list) else [question["text"]]
+            for line_index, line in enumerate(question_lines):
+                text = font.render(line, True, color)
+                screen.blit(text, (box.x + 45, y + line_index * 30))
+
+            field = pygame.Rect(box.x + 45, y + 42 + (len(question_lines) - 1) * 30, box_size - 90, 42)
+            pygame.draw.rect(screen, (12, 14, 18), field)
+            pygame.draw.rect(screen, color if selected else (150, 150, 150), field, 2)
+
+            shown = self.inputs[i] if self.inputs[i] else "?"
+            answer_text = font.render(shown, True, (230, 230, 230))
+            screen.blit(answer_text, (field.x + 12, field.y + 7))
