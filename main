@@ -669,3 +669,16 @@ troll_npc = NPC(
         {"speaker": "troll", "text": "Yes, but you have to solve the riddles."}
     ]
 )
+
+npc11 = NPC(
+    "assets/persons/npc11.png",
+    scale_pos(660, 200),
+    [
+        {"speaker": "player", "text": "Hello."},
+        {"speaker": "villager", "text": "Hello."},
+        {"speaker": "player", "text": "I heard that you might know where the magical tea set is."},
+        {"speaker": "villager", "text": "I know, the tea set is in an ancient cave, but to get in, you'll have to solve a riddle there."},
+        {"speaker": "player", "text": "Thank you for the information."},
+        {"speaker": "villager", "text": "I'm always happy to help, good luck."}
+    ]
+)
