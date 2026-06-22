@@ -70,3 +70,22 @@ magictea_img = pygame.transform.scale(
     pygame.image.load("assets/subject/magictea.png").convert_alpha(),
     scale_pos(106, 126)
 )
+mountain_close_img = pygame.transform.scale(
+    pygame.image.load("assets/subject/mountainclose.png").convert_alpha(),
+    scale_pos(700, 400)
+)
+mountain_open_img = pygame.transform.scale(
+    pygame.image.load("assets/subject/mountainopen.png").convert_alpha(),
+    scale_pos(700, 400)
+)
+
+backgrounds = {
+    "home": pygame.transform.scale(
+        pygame.image.load("assets/backgrounds/back1.png").convert(), (WIDTH, HEIGHT)
+    ),
+    "market": pygame.transform.scale(
+        pygame.image.load("assets/backgrounds/back2.png").convert(), (WIDTH, HEIGHT)
+    ),
+    "forest": pygame.transform.scale(
+        pygame.image.load("assets/backgrounds/back3.png").convert(), (WIDTH, HEIGHT)
+    ),
