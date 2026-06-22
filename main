@@ -282,6 +282,7 @@ hud_parts = [f"Flowers: {inventory['flower']}"]
 
     pygame.display.update()
     clock.tick(60)
+
 # ---------- NPC CLASS ----------
 class NPC:
     def __init__(self, image_path, pos, dialog):
@@ -315,6 +316,21 @@ class NPC:
 
     def current_line(self):
         return self.dialog[self.dialog_index]
+
+
+# ---------- PORTAL ----------
+class Portal:
+    def init(self, pos, target_location, spawn_pos, image=None):
+        self.image = image if image is not None else portal_img
+        self.rect = self.image.get_rect(center=pos)
+        self.target = target_location
+        self.spawn = spawn_pos
+
+    def draw(self):
+        screen.blit(self.image, self.rect)
+
+    def check(self, player_rect):
+        return self.rect.colliderect(player_rect)
 
 # ---------- MOUNTAIN PUZZLE ----------
 class MountainGate:
