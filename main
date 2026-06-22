@@ -551,3 +551,5 @@ class TrollRiddles:
             shown = self.inputs[i] if self.inputs[i] else "?"
             answer_text = font.render(shown, True, (230, 230, 230))
             screen.blit(answer_text, (field.x + 12, field.y + 7))
+
+troll_riddles = TrollRiddles()
