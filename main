@@ -171,3 +171,38 @@ speed = 5
     if location == "vilkaa":
         troll_npc.draw()
     screen.blit(player_img, player_rect)
+
+    if quest_npc.show_dialog:
+        line = quest_npc.current_line()
+        draw_dialog(line["speaker"], line["text"])
+
+    if trader_npc.show_dialog:
+        line = trader_npc.current_line()
+        draw_dialog(line["speaker"], line["text"])
+
+    if npc11.show_dialog:
+        line = npc11.current_line()
+        draw_dialog(line["speaker"], line["text"])
+
+    if troll_npc.show_dialog:
+        line = troll_npc.current_line()
+        draw_dialog(line["speaker"], line["text"])
+
+    if trader_menu_active:
+        draw_trader_menu()
+
+    if quest_menu_active:
+        draw_quest_menu()
+
+    if troll_choice_active:
+        draw_troll_choice()
+
+    if mountain_puzzle.active:
+        mountain_puzzle.draw()
+
+    if troll_riddles.active:
+        troll_riddles.draw()
+
+    if mountain_puzzle.solved and not mountain_gate.opened:
+        mountain_gate.opened = True
+        portals["vilka2"].append(mountain_portal)
