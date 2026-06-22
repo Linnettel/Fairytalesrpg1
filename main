@@ -290,3 +290,10 @@ class MountainGate:
         self.rect = self.closed_image.get_rect(center=pos)
         self.interaction_rect = self.rect.inflate(120, 120)
         self.opened = True
+
+    def draw(self):
+        image = self.open_image if self.opened else self.closed_image
+        screen.blit(image, self.rect)
+
+    def can_interact(self, player_rect):
+        return (not self.opened) and self.interaction_rect.colliderect(player_rect)
