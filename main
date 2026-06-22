@@ -221,3 +221,6 @@ hud_parts = [f"Flowers: {inventory['flower']}"]
         True, (255, 255, 255)
     )
     screen.blit(hud, (20, 20))
+
+    pygame.display.update()
+    clock.tick(60)
