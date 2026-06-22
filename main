@@ -109,3 +109,5 @@ backgrounds = {
         pygame.image.load("assets/backgrounds/BB.png").convert(), (WIDTH, HEIGHT)
     )
 }
+
+speed = 5
