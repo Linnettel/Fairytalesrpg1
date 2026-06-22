@@ -632,3 +632,15 @@ def draw_quest_menu():
         color = (255, 255, 0) if i == quest_menu_index else (255, 255, 255)
         screen.blit(font.render(opt, True, color),
                     (box.x + 40, box.y + 50 + i * 50))
+
+# ---------- NPCs ----------
+quest_npc = NPC(
+    "assets/persons/mainpersmini21.png",
+    scale_pos(400, 420),
+    [
+        {"speaker": "npc", "text": "Hello."},
+        {"speaker": "player", "text": "Hello."},
+        {"speaker": "npc", "text": "I want to have a tea party, so I need a cake, some magic tea and a magic tea set."},
+        {"speaker": "player", "text": "I'll take care of it."}
+    ]
+)
