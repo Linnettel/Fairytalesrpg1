@@ -289,7 +289,7 @@ class MountainGate:
         self.open_image = mountain_open_img
         self.rect = self.closed_image.get_rect(center=pos)
         self.interaction_rect = self.rect.inflate(120, 120)
-        self.opened = True
+        self.opened = False
 
     def draw(self):
         image = self.open_image if self.opened else self.closed_image
