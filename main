@@ -309,3 +309,15 @@ class MountainPuzzle:
         self.slot_order = []
         self.slot_angles = {}
         self.reset()
+
+ def reset(self):
+        self.selected = 0
+        self.shape_angles = {name: random.choice([0, 15, 30, 45, 60, 75]) for name in self.shape_names}
+        self.locked_shapes = set()
+        self.slot_order = self.shape_names[:]
+        random.shuffle(self.slot_order)
+        self.slot_angles = {
+            "square": random.choice([0, 90, 180, 270]),
+            "triangle": random.choice([0, 120, 240]),
+            "oval": random.choice([0, 180])
+        }
