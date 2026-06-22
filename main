@@ -616,3 +616,19 @@ def get_quest_options():
             options.append(("hint_teaservice", "Where can I find a tea service?"))
 
     return options
+
+def draw_quest_menu():
+    box = pygame.Rect(80, HEIGHT - 240, WIDTH - 160, 200)
+    pygame.draw.rect(screen, (0, 0, 0), box)
+    pygame.draw.rect(screen, (255, 255, 255), box, 2)
+
+    title = font.render("Choose an option:", True, (200, 200, 200))
+    screen.blit(title, (box.x + 20, box.y + 10))
+
+    options = get_quest_options()
+
+    for i, option in enumerate(options):
+        opt = option[1]
+        color = (255, 255, 0) if i == quest_menu_index else (255, 255, 255)
+        screen.blit(font.render(opt, True, color),
+                    (box.x + 40, box.y + 50 + i * 50))
