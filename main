@@ -123,3 +123,14 @@ speed = 5
             player_rect.y -= speed
         if keys[pygame.K_s]:
             player_rect.y += speed
+
+  # ---------- NPC COLLISION ----------
+    for npc in get_npcs_for_location():
+        if player_rect.colliderect(npc.rect):
+            player_rect = prev_rect
+            break
+
+    if location == "vilka2" and (not mountain_gate.opened) and player_rect.colliderect(mountain_gate.rect):
+        player_rect = prev_rect
+
+   
