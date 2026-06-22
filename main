@@ -90,3 +90,22 @@ backgrounds = {
     "forest": pygame.transform.scale(
         pygame.image.load("assets/backgrounds/back3.png").convert(), (WIDTH, HEIGHT)
     ),
+"vilka": pygame.transform.scale(
+        pygame.image.load("assets/backgrounds/vilka.png").convert(), (WIDTH, HEIGHT)
+    ),
+    "vilka1": pygame.transform.scale(
+        pygame.image.load("assets/backgrounds/1.png").convert(), (WIDTH, HEIGHT)
+    ),
+    "vilka2": pygame.transform.scale(
+        pygame.image.load("assets/backgrounds/2.png").convert(), (WIDTH, HEIGHT)
+    ),
+    "vilka3": pygame.transform.scale(
+        pygame.image.load("assets/backgrounds/3.png").convert(), (WIDTH, HEIGHT)
+    ),
+    "vilkaa": pygame.transform.scale(
+        pygame.image.load("assets/backgrounds/AA.png").convert(), (WIDTH, HEIGHT)
+    ),
+    "vilkab": pygame.transform.scale(
+        pygame.image.load("assets/backgrounds/BB.png").convert(), (WIDTH, HEIGHT)
+    )
+}
