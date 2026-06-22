@@ -379,3 +379,24 @@ class MountainPuzzle:
         rotated = pygame.transform.rotate(temp, -angle)
         rect = rotated.get_rect(center=center)
         surface.blit(rotated, rect)
+
+    def draw(self):
+        overlay = pygame.Surface((WIDTH, HEIGHT), pygame.SRCALPHA)
+        overlay.fill((0, 0, 0, 170))
+        screen.blit(overlay, (0, 0))
+
+        box_size = min(700, WIDTH - 60, HEIGHT - 60)
+        box = pygame.Rect(0, 0, box_size, box_size)
+        box.center = (WIDTH // 2, HEIGHT // 2)
+
+        pygame.draw.rect(screen, (28, 32, 38), box)
+        pygame.draw.rect(screen, (235, 235, 235), box, 4)
+
+        gap = box_size // 4
+        top_y = box.y + box_size // 3
+        slot_y = box.y + box_size * 2 // 3
+        slot_positions = [
+            (box.x + gap, slot_y),
+            (box.x + gap * 2, slot_y),
+            (box.x + gap * 3, slot_y)
+        ]
