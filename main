@@ -25,3 +25,13 @@ def scale_pos(x, y):
         int(x / BASE_WIDTH * WIDTH),
         int(y / BASE_HEIGHT * HEIGHT)
     )
+
+# ---------- GAME STATE ----------
+location = "home"
+
+inventory = {"flower": 0, "cake": 0, "teaservice": 0, "magictea": 0}
+
+quests = {
+    "collect_flowers": False,
+    "bring_cake": False
+}
