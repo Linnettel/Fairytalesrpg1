@@ -55,3 +55,18 @@ troll_choice_index = 0
 troll_dialog_expects_choice = False
 troll_bridge_solved = False
 troll_bridge_portal_added = False
+
+# ---------- LOAD ASSETS ----------
+player_img = pygame.image.load("assets/persons/mainpersmini2.png").convert_alpha()
+
+portal_img = pygame.image.load("assets/subject/portal.png").convert_alpha()
+portal2_img = pygame.image.load("assets/subject/portal2.png").convert_alpha()
+flower_img = pygame.image.load("assets/subject/flover.png").convert_alpha()
+teaservice_img = pygame.transform.scale(
+    pygame.image.load("assets/subject/Teaservice.png").convert_alpha(),
+    scale_pos(106, 136)
+)
+magictea_img = pygame.transform.scale(
+    pygame.image.load("assets/subject/magictea.png").convert_alpha(),
+    scale_pos(106, 126)
+)
