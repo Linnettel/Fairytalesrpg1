@@ -1,2 +1,6 @@
+import pygame
+import sys
+import random
+
 BASE_WIDTH = 1280
 BASE_HEIGHT = 720
