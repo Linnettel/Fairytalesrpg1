@@ -726,3 +726,46 @@ def get_npcs_for_location():
     if location == "vilkaa":
         return [troll_npc]
     return []
+
+# ---------- GAME LOOP ----------
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+
+        if event.type == pygame.MOUSEWHEEL and mountain_puzzle.active:
+            mountain_puzzle.rotate_selected()
+
+        if event.type == pygame.MOUSEBUTTONDOWN and mountain_puzzle.active:
+            if event.button in (4, 5):
+                mountain_puzzle.rotate_selected()
+
+        if event.type == pygame.KEYDOWN:
+            #---Esc----
+            if event.key == pygame.K_ESCAPE:
+                if mountain_puzzle.active:
+                    mountain_puzzle.active = False
+                    continue
+                pygame.quit()
+                sys.exit()
+
+            if mountain_puzzle.active:
+                if event.key == pygame.K_LEFT:
+                    mountain_puzzle.select_next(-1)
+                elif event.key == pygame.K_RIGHT:
+                    mountain_puzzle.select_next(1)
+                elif event.key in (pygame.K_UP, pygame.K_SPACE, pygame.K_e):
+                    mountain_puzzle.rotate_selected()
+                continue
+
+            if mountain_puzzle.solved and not mountain_gate.opened:
+                mountain_gate.opened = True
+                portals["vilka2"].append(mountain_portal)
+
+            if troll_riddles.active:
+                troll_riddles.handle_key(event)
+                if troll_riddles.is_solved():
+                    troll_bridge_solved = True
+                    open_troll_bridge()
+                    troll_npc.start_dialog(
