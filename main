@@ -786,3 +786,28 @@ while True:
                 if mountain_gate.can_interact(player_rect):
                     mountain_puzzle.start()
                     continue
+            if event.key == pygame.K_e and location == "vilkaa":
+                if troll_npc.can_interact(player_rect):
+                    if troll_npc.show_dialog:
+                        if troll_npc.next_dialog() == "end" and troll_dialog_expects_choice:
+                            troll_choice_active = True
+                            troll_choice_index = 0
+                            troll_dialog_expects_choice = False
+
+                    elif not troll_bridge_solved:
+                        if not troll_intro_done:
+                            troll_npc.start_dialog([
+                                {"speaker": "player", "text": "Hello."},
+                                {"speaker": "troll", "text": "Hello."},
+                                {"speaker": "player", "text": "What sort of bridge are you guarding?"},
+                                {"speaker": "troll", "text": "This bridge leads to a magical tea."},
+                                {"speaker": "player", "text": "Can I cross this bridge?"},
+                                {"speaker": "troll", "text": "Yes, but you have to solve the riddles."}
+                            ])
+                            troll_intro_done = True
+                        else:
+                            troll_npc.start_dialog([
+                                {"speaker": "troll", "text": "Do you still want to solve the riddles?"}
+                            ])
+                        troll_dialog_expects_choice = True
+                    continue
