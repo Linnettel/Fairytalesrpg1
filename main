@@ -682,3 +682,29 @@ npc11 = NPC(
         {"speaker": "villager", "text": "I'm always happy to help, good luck."}
     ]
 )
+# ---------- PORTALS ----------
+portals = {
+    "home": [Portal(scale_pos(1150, 360), "vilka", scale_pos(500, 360))],
+    "market": [
+        Portal(scale_pos(100, 360), "vilka", scale_pos(500, 360)),
+        Portal(scale_pos(1150, 360), "forest", scale_pos(500, 360))
+    ],
+    "forest": [Portal(scale_pos(100, 360), "market", scale_pos(500, 360))],
+    "vilka": [
+        Portal(scale_pos(100, 360), "home", scale_pos(500, 360)),
+        Portal(scale_pos(650, 100), "market", scale_pos(500, 360)),
+        Portal(scale_pos(1150, 360), "vilka1", scale_pos(300, 560)),
+        Portal(scale_pos(650, 660), "vilkaa", scale_pos(150, 360))
+    ],
+    "vilka1": [
+        Portal(scale_pos(100, 520), "vilka", scale_pos(500, 360)),
+        Portal(scale_pos(1150, 520), "vilka2", scale_pos(500, 360))
+    ],
+    "vilka2": [Portal(scale_pos(100, 520), "vilka1", scale_pos(300, 560))],
+    "vilka3": [Portal(scale_pos(100, 360), "vilka2", scale_pos(500, 360)),
+               ],
+    "vilkaa": [
+        Portal(scale_pos(100, 660), "vilka", scale_pos(500, 360))
+    ],
+    "vilkab": [Portal(scale_pos(100, 360), "vilkaa", scale_pos(800, 360))]
+}
