@@ -708,3 +708,21 @@ portals = {
     ],
     "vilkab": [Portal(scale_pos(100, 360), "vilkaa", scale_pos(800, 360))]
 }
+troll_bridge_portal = Portal(scale_pos(1150, 360), "vilkab", scale_pos(500, 360))
+
+def open_troll_bridge():
+    global troll_bridge_portal_added
+    if not troll_bridge_portal_added:
+        portals["vilkaa"].append(troll_bridge_portal)
+        troll_bridge_portal_added = True
+
+def get_npcs_for_location():
+    if location == "home":
+        return [quest_npc]
+    if location == "market":
+        return [trader_npc]
+    if location == "vilka1":
+        return [npc11]
+    if location == "vilkaa":
+        return [troll_npc]
+    return []
