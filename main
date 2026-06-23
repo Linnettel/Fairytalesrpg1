@@ -769,3 +769,20 @@ while True:
                     troll_bridge_solved = True
                     open_troll_bridge()
                     troll_npc.start_dialog(
+                     [{"speaker": "troll", "text": "It's your bridge."}]
+                    )
+                continue
+
+            if troll_choice_active:
+                if event.key in (pygame.K_UP, pygame.K_DOWN):
+                    troll_choice_index = (troll_choice_index + 1) % 2
+                elif event.key in (pygame.K_e, pygame.K_RETURN):
+                    if troll_choice_index == 0:
+                        troll_riddles.start()
+                    troll_choice_active = False
+                continue
+
+            if event.key == pygame.K_e and location == "vilka2":
+                if mountain_gate.can_interact(player_rect):
+                    mountain_puzzle.start()
+                    continue
