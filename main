@@ -925,3 +925,41 @@ elif trader_menu_index == 1:
                     quest_menu_index = (quest_menu_index - 1) % len(quest_options)
                 elif event.key == pygame.K_DOWN:
                     quest_menu_index = (quest_menu_index + 1) % len(quest_options)
+                elif event.key == pygame.K_e:
+                    action = quest_options[quest_menu_index][0]
+
+                    if action == "deliver_cake":
+                        inventory["cake"] = 0
+                        quest_items_delivered["cake"] = True
+                        quests["bring_cake"] = False
+                        quest_npc.start_dialog(
+                            [{"speaker": "npc", "text": "Thank you for the cake."}]
+                        )
+                    elif action == "deliver_magictea":
+                        inventory["magictea"] = 0
+                        quest_items_delivered["magictea"] = True
+                        quest_npc.start_dialog(
+                            [{"speaker": "npc", "text": "Thank you for the magic tea."}]
+                        )
+                    elif action == "deliver_teaservice":
+                        inventory["teaservice"] = 0
+                        quest_items_delivered["teaservice"] = True
+                        quest_npc.start_dialog(
+                            [{"speaker": "npc", "text": "Thank you for the tea service."}]
+                        )
+                    elif action == "hint_cake":
+                        quest_npc.start_dialog(
+                            [{"speaker": "npc", "text": "You can buy a cake from a trader at the local market."}]
+                        )
+                    elif action == "hint_magictea":
+                        quest_npc.start_dialog(
+                            [{"speaker": "npc", "text": "You need to find them beyond the bridge guarded by a troll."}]
+                        )
+                    elif action == "hint_teaservice":
+                        quest_npc.start_dialog(
+                            [{"speaker": "npc", "text": "Ask a villager about it."}]
+                        )
+
+                    quest_menu_active = False
+                    quest_menu_index = 0
+                    continue
