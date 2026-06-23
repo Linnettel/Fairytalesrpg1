@@ -845,3 +845,31 @@ if event.key == pygame.K_e and location == "vilka1":
                         if quest_npc.next_dialog() == "end":
                             quest_intro_done = True
                             quests["collect_flowers"] = True
+ # Повторные подходы → меню
+                    elif quest_intro_done and all_tea_party_items_delivered():
+                        quest_npc.start_dialog(
+                            [{"speaker": "npc", "text": "Okay. Lets go to tea party."}]
+                        )
+
+                    elif quest_intro_done and not quest_menu_active:
+                        quest_menu_active = True
+                        quest_menu_index = 0
+                        continue
+
+            # ---------- TRADER ----------
+            if event.key == pygame.K_e and location == "market":
+                if trader_npc.can_interact(player_rect):
+
+                    if not trader_intro_done and not trader_npc.show_dialog:
+                        trader_npc.show_dialog = True
+                        trader_npc.dialog_index = 0
+
+                    elif trader_npc.show_dialog:
+                        if trader_npc.next_dialog() == "end":
+                            trader_intro_done = True
+                            quests["collect_flowers"] = True
+
+                    elif trader_intro_done and not trader_menu_active:
+                        trader_menu_active = True
+                        trader_menu_index = 0
+                        continue
