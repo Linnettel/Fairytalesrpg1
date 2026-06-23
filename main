@@ -811,3 +811,37 @@ while True:
                             ])
                         troll_dialog_expects_choice = True
                     continue
+if event.key == pygame.K_e and location == "vilka1":
+                if npc11.can_interact(player_rect):
+                    if not npc11.show_dialog:
+                        npc11.show_dialog = True
+                        npc11.dialog_index = 0
+                    else:
+                        npc11.next_dialog()
+                    continue
+
+            # ---------- FLOWER PICKUP ----------
+            if event.key == pygame.K_f:
+                for flower in flowers_by_location[location][:]:
+                    if player_rect.colliderect(flower.rect):
+                        flowers_by_location[location].remove(flower)
+                        inventory["flower"] += 1
+                for item in items_by_location[location][:]:
+                    if player_rect.colliderect(item.rect):
+                        items_by_location[location].remove(item)
+                        inventory[item.inventory_key] = 1
+
+            # ---------- QUEST NPC ----------
+            if event.key == pygame.K_e and location == "home":
+                if quest_npc.can_interact(player_rect):
+
+                    # Первый диалог
+                    if not quest_intro_done and not quest_npc.show_dialog:
+                        quest_npc.show_dialog = True
+                        quest_npc.dialog_index = 0
+
+                    # Продолжаем первый диалог
+                    elif quest_npc.show_dialog:
+                        if quest_npc.next_dialog() == "end":
+                            quest_intro_done = True
+                            quests["collect_flowers"] = True
